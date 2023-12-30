@@ -22,14 +22,19 @@ for x in range(len(df['Weight (lbs)'])):
     if df['Weight (lbs)'][x] == 'bodyweight':
         df['Weight (lbs)'][x] = bodyweight
 
-#choose a specific exercise
-exerciseInput = input("What exercise would you like to check your progress in?")
-exercise = df[df['Name'] == exerciseInput]
 
-figureString = exerciseInput + " weight trend"
-plt.figure(figureString, figsize = (12,6))
-exercisePlot =sns.lineplot(data = exercise, x = 'Date', y = 'Weight (lbs)')
-exercisePlot.invert_yaxis()
+#choose a specific exercise
+userChoice = input("Would you like to see the trend of a specific exercise? (y/n)")
+while userChoice != 'y' and userChoice != 'n':
+    userChoice =input("Please enter a valid option (y/n)")
+while userChoice == 'y':
+    exerciseInput = input("What exercise would you like to check your progress in?")
+    exercise = df[df['Name'] == exerciseInput]
+    figureString = exerciseInput + " weight trend"
+    plt.figure(figureString, figsize = (12,6))
+    exercisePlot =sns.lineplot(data = exercise, x = 'Date', y = 'Weight (lbs)')
+    exercisePlot.invert_yaxis()
+    userChoice = input("Would you like to continue? (y/n)")
 
 #exercise type frequency
 plt.figure("type frequency")
@@ -37,3 +42,6 @@ freqPlot = sns.countplot(data = df, x ="Type", palette = 'flare')
 plt.figure("frequency by month")
 freqByMonth = sns.countplot(data = df, x ="Type", hue = "mY", palette = 'flare')
 plt.show()
+
+
+#want to have a rate of change function
