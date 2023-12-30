@@ -10,6 +10,8 @@ Additionally, the user will be asked if they would like a trend chart of an exer
    
 It will also prompt the user for "bodyweight" to substitute in the event the weight column value returns 'bodyweight'
 
+ALL OF THESE PLOTS WILL BE SHOWN AT THE END OF THE PROGRAM AND BE SAVED AS PNG'S TO THE SAME FOLDER AS THE PROGRAM
+
 to run: gym-analytics.py
 
 installations: 
